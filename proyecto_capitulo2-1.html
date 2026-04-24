@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Capítulo 2 - Naturaleza y ámbito de la empresa</title>
+  <style>
+    :root{
+      --azul:#1d4ed8;
+      --azul-suave:#dbeafe;
+      --rojo:#d61f26;
+      --amarillo:#ffc72c;
+      --texto:#111827;
+      --gris:#6b7280;
+      --borde:#e5e7eb;
+      --fondo:#f3f4f6;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--fondo);
+      color:var(--texto);
+      line-height:1.6;
+    }
+    header{
+      background:linear-gradient(135deg, var(--azul), #1e40af);
+      color:#fff;
+      padding:48px 20px;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:24px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      font-size:14px;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(32px,4vw,50px);
+      line-height:1.1;
+    }
+    .hero p{margin:0}
+    .hero-card{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;
+      padding:20px;
+    }
+    main{padding:28px 16px 60px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--borde);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
+      margin:20px 0;
+    }
+    h2{
+      margin-top:0;
+      color:var(--azul);
+      border-bottom:3px solid var(--azul-suave);
+      padding-bottom:8px;
+      font-size:28px;
+    }
+    h3{margin-top:0}
+    .grid-2,.grid-3{
+      display:grid;
+      gap:18px;
+    }
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mini{
+      background:#f9fafb;
+      border:1px solid var(--borde);
+      border-radius:14px;
+      padding:18px;
+    }
+    .tag{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:bold;
+      margin-bottom:8px;
+      background:#dbeafe;
+      color:#1e3a8a;
+    }
+    .tag.red{background:#fee2e2;color:#991b1b}
+    .tag.yellow{background:#fef3c7;color:#92400e}
+    ul{padding-left:20px}
+    .highlight{
+      background:#eff6ff;
+      border-left:6px solid var(--azul);
+      padding:16px;
+      border-radius:12px;
+    }
+    .example{
+      background:#fff7d6;
+      border-left:6px solid var(--amarillo);
+      padding:16px;
+      border-radius:12px;
+    }
+    .controls{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin:18px 0;
+    }
+    .control{
+      background:#f9fafb;
+      border:1px solid var(--borde);
+      border-radius:14px;
+      padding:16px;
+    }
+    label{
+      display:block;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    input[type=range]{width:100%}
+    .value{
+      font-weight:bold;
+      color:var(--azul);
+    }
+    canvas{
+      width:100%;
+      max-width:100%;
+      background:#fff;
+      border:1px solid var(--borde);
+      border-radius:14px;
+      margin-top:10px;
+    }
+    .result{
+      background:#f0fdf4;
+      border:1px solid #bbf7d0;
+      border-radius:14px;
+      padding:16px;
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+    }
+    th,td{
+      border:1px solid var(--borde);
+      padding:10px;
+      text-align:left;
+      vertical-align:top;
+    }
+    th{background:#f3f4f6}
+    footer{
+      text-align:center;
+      color:var(--gris);
+      font-size:14px;
+      margin-top:30px;
+    }
+    @media (max-width:900px){
+      .hero,.grid-2,.grid-3,.controls{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div>
+        <span class="badge">Proyecto web · Capítulo 2</span>
+        <h1>Naturaleza y ámbito de la empresa</h1>
+        <p>
+          Página web académica que cumple con la dimensión teórica, la aplicación práctica y la interactividad
+          solicitadas para el proyecto del Capítulo 2.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h3>Objetivo del recurso</h3>
+        <p>Explicar la empresa como sustituto del mercado, aplicar el análisis a un caso real y visualizar el punto óptimo de integración entre costos de transacción y costos de coordinación.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1. Introducción</h2>
+      <p>
+        El Capítulo 2 plantea que la empresa existe porque en muchas situaciones coordinar actividades
+        internamente resulta más conveniente que depender totalmente del mercado. Esto ocurre cuando usar
+        el mercado implica costos de transacción altos, como negociar, supervisar, resolver conflictos o
+        enfrentar conductas oportunistas.
+      </p>
+      <div class="highlight">
+        <strong>Idea central:</strong> la empresa actúa como un sustituto del mercado cuando la coordinación interna
+        reduce costos y mejora la eficiencia.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Dimensión teórica</h2>
+      <div class="grid-3">
+        <div class="mini">
+          <span class="tag">Naturaleza</span>
+          <h3>¿Qué es la empresa?</h3>
+          <p>
+            Es una institución que organiza recursos y procesos mediante una cadena de mando. Su función
+            es reemplazar ciertas transacciones de mercado por coordinación interna.
+          </p>
+        </div>
+        <div class="mini">
+          <span class="tag yellow">Ámbito</span>
+          <h3>¿Hasta dónde se integra?</h3>
+          <p>
+            El tamaño vertical de la empresa depende del equilibrio entre el ahorro de costos de transacción
+            y el aumento de los costos de coordinación.
+          </p>
+        </div>
+        <div class="mini">
+          <span class="tag red">Objetivo</span>
+          <h3>¿Qué busca la empresa?</h3>
+          <p>
+            Tradicionalmente se asume que busca maximizar beneficios, aunque el capítulo muestra que la
+            separación entre dueños y administradores genera problemas de agencia.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="mini">
+          <h3>Costos de transacción</h3>
+          <ul>
+            <li>Negociación y redacción de contratos.</li>
+            <li>Supervisión y cumplimiento de acuerdos.</li>
+            <li>Contratos incompletos.</li>
+            <li>Activos específicos.</li>
+            <li>Riesgo de oportunismo u hold-up.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Costos de coordinación</h3>
+          <ul>
+            <li>Burocracia interna.</li>
+            <li>Mayor complejidad organizacional.</li>
+            <li>Problemas de monitoreo.</li>
+            <li>Costos de control y administración.</li>
+            <li>Dificultad para coordinar muchas actividades a la vez.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        Según la lógica del capítulo, la empresa se expande hasta el punto en que integrar una actividad adicional
+        deja de ser conveniente. Por eso, ni la integración total ni la externalización absoluta son siempre la mejor solución.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. Aplicación práctica: caso McDonald’s</h2>
+      <p>
+        Para aplicar la teoría a una industria real, se puede estudiar a <strong>McDonald’s</strong> dentro de la industria
+        de comida rápida. Este caso es útil porque combina actividades controladas directamente por la empresa
+        con otras coordinadas a través de contratos, proveedores y franquicias.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Aspecto del capítulo</th>
+            <th>Aplicación a McDonald’s</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Empresa como sustituto del mercado</td>
+            <td>McDonald’s no deja toda la coordinación al mercado: utiliza estándares, manuales y supervisión para asegurar uniformidad.</td>
+          </tr>
+          <tr>
+            <td>Integración vertical</td>
+            <td>No produce todo por sí misma, pero controla elementos estratégicos como marca, procesos, calidad y operación general.</td>
+          </tr>
+          <tr>
+            <td>Costos de transacción</td>
+            <td>La empresa reduce riesgos mediante contratos, auditorías, capacitación y control de proveedores y franquiciados.</td>
+          </tr>
+          <tr>
+            <td>Costos de coordinación</td>
+            <td>Si integrara absolutamente todas las actividades, aumentaría mucho la complejidad administrativa y operativa.</td>
+          </tr>
+          <tr>
+            <td>Gobernanza</td>
+            <td>Combina jerarquía, protocolos, incentivos y monitoreo para reducir conductas oportunistas y mantener calidad homogénea.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="example" style="margin-top:14px;">
+        <strong>Conclusión del caso:</strong> McDonald’s muestra un nivel de integración intermedio. Controla lo estratégico,
+        pero se apoya en terceros especializados cuando eso le permite operar con mayor eficiencia.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Determinantes de gobernanza</h2>
+      <div class="grid-2">
+        <div class="mini">
+          <h3>Gobernanza interna</h3>
+          <ul>
+            <li>Jerarquías de decisión.</li>
+            <li>Protocolos operativos.</li>
+            <li>Capacitación del personal.</li>
+            <li>Monitoreo del desempeño.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Gobernanza externa</h3>
+          <ul>
+            <li>Contratos con proveedores.</li>
+            <li>Relación con franquiciados.</li>
+            <li>Estándares de calidad.</li>
+            <li>Auditorías y sanciones por incumplimiento.</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        En términos del capítulo, la gobernanza es importante porque ayuda a alinear intereses, reducir problemas
+        de agencia y evitar que el oportunismo destruya valor dentro o fuera de la empresa.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. Interactividad: punto óptimo de integración</h2>
+      <p>
+        En este simulador, el costo de transacción baja cuando la empresa integra más actividades, mientras que
+        el costo de coordinación sube. La suma de ambos muestra el punto óptimo de integración.
+      </p>
+
+      <div class="controls">
+        <div class="control">
+          <label for="tb">Costo base de transacción: <span class="value" id="tbv">90</span></label>
+          <input id="tb" type="range" min="30" max="150" value="90">
+        </div>
+        <div class="control">
+          <label for="cb">Costo base de coordinación: <span class="value" id="cbv">10</span></label>
+          <input id="cb" type="range" min="0" max="70" value="10">
+        </div>
+        <div class="control">
+          <label for="cs">Pendiente de coordinación: <span class="value" id="csv">1.6</span></label>
+          <input id="cs" type="range" min="0.5" max="4" step="0.1" value="1.6">
+        </div>
+      </div>
+
+      <div class="result" id="resultado"></div>
+      <canvas id="grafico" width="1000" height="430"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>6. Conclusión general</h2>
+      <p>
+        El Capítulo 2 permite entender que la empresa no existe solamente para producir, sino para organizar
+        transacciones de manera más eficiente que el mercado cuando este presenta altos costos. El análisis aplicado
+        muestra que la integración vertical debe evaluarse caso a caso, observando costos, incentivos y mecanismos
+        de gobernanza.
+      </p>
+      <p>
+        Así, el proyecto demuestra la comprensión de la empresa como sustituto del mercado, incorpora una aplicación
+        práctica en una industria real y utiliza una visualización funcional para explicar el punto óptimo de integración.
+      </p>
+    </section>
+
+    <footer>
+      Proyecto web en HTML, CSS y JavaScript.
+    </footer>
+  </main>
+
+  <script>
+    const tb = document.getElementById('tb');
+    const cb = document.getElementById('cb');
+    const cs = document.getElementById('cs');
+    const tbv = document.getElementById('tbv');
+    const cbv = document.getElementById('cbv');
+    const csv = document.getElementById('csv');
+    const resultado = document.getElementById('resultado');
+    const canvas = document.getElementById('grafico');
+    const ctx = canvas.getContext('2d');
+
+    function transaccion(x, t){
+      return Math.max(0, t - 0.9 * x);
+    }
+
+    function coordinacion(x, c, s){
+      return c + s * Math.pow(x, 1.4);
+    }
+
+    function eje(){
+      ctx.strokeStyle = "#374151";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(70, 30);
+      ctx.lineTo(70, 360);
+      ctx.lineTo(950, 360);
+      ctx.stroke();
+
+      ctx.fillStyle = "#111827";
+      ctx.font = "14px Arial";
+      ctx.fillText("Costo", 24, 28);
+      ctx.fillText("Grado de integración", 785, 395);
+
+      for(let i = 0; i <= 10; i++){
+        const x = 70 + i * 88;
+        ctx.strokeStyle = "#e5e7eb";
+        ctx.beginPath();
+        ctx.moveTo(x, 30);
+        ctx.lineTo(x, 360);
+        ctx.stroke();
+        ctx.fillStyle = "#6b7280";
+        ctx.fillText(String(i * 10), x - 8, 382);
+      }
+
+      for(let i = 0; i <= 6; i++){
+        const y = 360 - i * 50;
+        ctx.strokeStyle = "#e5e7eb";
+        ctx.beginPath();
+        ctx.moveTo(70, y);
+        ctx.lineTo(950, y);
+        ctx.stroke();
+      }
+    }
+
+    function linea(tipo, color, etiqueta, t, c, s, posY){
+      ctx.beginPath();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = color;
+      for(let i = 0; i <= 100; i++){
+        let costo = 0;
+        if(tipo === "T") costo = transaccion(i, t);
+        if(tipo === "C") costo = coordinacion(i, c, s);
+        if(tipo === "TT") costo = transaccion(i, t) + coordinacion(i, c, s);
+        const px = 70 + i * 8.8;
+        const py = 360 - costo * 2.3;
+        if(i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+
+      ctx.fillStyle = color;
+      ctx.fillRect(735, posY - 8, 18, 8);
+      ctx.fillStyle = "#111827";
+      ctx.font = "14px Arial";
+      ctx.fillText(etiqueta, 760, posY);
+    }
+
+    function optimo(t, c, s){
+      let mejorX = 0;
+      let mejorCosto = Infinity;
+      for(let x = 0; x <= 100; x++){
+        const total = transaccion(x, t) + coordinacion(x, c, s);
+        if(total < mejorCosto){
+          mejorCosto = total;
+          mejorX = x;
+        }
+      }
+
+      const px = 70 + mejorX * 8.8;
+      const py = 360 - mejorCosto * 2.3;
+
+      ctx.fillStyle = "#111827";
+      ctx.beginPath();
+      ctx.arc(px, py, 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.setLineDash([6,6]);
+      ctx.strokeStyle = "#111827";
+      ctx.beginPath();
+      ctx.moveTo(px, py);
+      ctx.lineTo(px, 360);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.font = "bold 14px Arial";
+      ctx.fillText("Óptimo", px + 10, py - 10);
+
+      resultado.innerHTML =
+        "<strong>Resultado:</strong> el nivel óptimo de integración es aproximadamente <strong>" + mejorX + "%</strong>. " +
+        "En ese punto, la suma entre costos de transacción y costos de coordinación es la más baja. " +
+        "Esto refleja la idea del capítulo: la empresa debe integrar actividades hasta donde la coordinación interna siga siendo más eficiente que el mercado.";
+    }
+
+    function render(){
+      const t = parseFloat(tb.value);
+      const c = parseFloat(cb.value);
+      const s = parseFloat(cs.value);
+
+      tbv.textContent = t;
+      cbv.textContent = c;
+      csv.textContent = s.toFixed(1);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      eje();
+      linea("T", "#dc2626", "Costos de transacción", t, c, s, 55);
+      linea("C", "#2563eb", "Costos de coordinación", t, c, s, 80);
+      linea("TT", "#111827", "Costo total", t, c, s, 105);
+      optimo(t, c, s);
+    }
+
+    [tb, cb, cs].forEach(el => el.addEventListener("input", render));
+    render();
+  </script>
+</body>
+</html>
